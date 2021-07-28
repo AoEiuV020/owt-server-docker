@@ -1,0 +1,1 @@
+find /opt/owt/logs -type f -exec rm {} \;

@@ -1,0 +1,1 @@
+docker run -d --name owt --net=host -v $PWD:/owt -it ubuntu:18.04

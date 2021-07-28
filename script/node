@@ -1,0 +1,2 @@
+yes ''|/opt/owt/bin/install_node.sh
+. ~/.bashrc

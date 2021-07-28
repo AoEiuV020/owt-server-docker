@@ -1,0 +1,1 @@
+yes ''|/opt/owt/bin/init-all.sh --deps
