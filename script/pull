@@ -1,0 +1,10 @@
+#!/bin/sh
+. "$(dirname $0)/env"
+version=$($script_dir/oversion)
+username=$(docker info | sed '/Username:/!d;s/.* //')
+if test -z $username
+then
+    echo docker login first
+    exit 1
+fi
+docker pull "$username/owt-server:$version" || echo skip old version

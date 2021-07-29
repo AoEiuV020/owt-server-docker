@@ -30,6 +30,9 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: docker pull old image
+      if: ${{ env.publish == 'true' }}
+      run: ./script/pull
     - name: docker build
       run: ./script/build
     - name: docker push

@@ -5,7 +5,7 @@
 #     echo 'usage: push [tag]...'
 #     exit 1
 # fi
-username=$(docker info | sed '/Username:/!d;s/.* //'); 
+username=$(docker info | sed '/Username:/!d;s/.* //')
 if test -z $username
 then
     echo docker login first
