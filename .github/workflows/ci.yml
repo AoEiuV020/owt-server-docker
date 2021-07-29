@@ -3,7 +3,12 @@ env:
   TZ: Asia/Shanghai
 on:
   push:
-    branches: main
+    branches:
+      - main
+    paths-ignore:
+      - '**/README.md'
+      - '.github/workflows/*'
+      - '!.github/workflows/ci.yml'
 jobs:
   build:
     runs-on: ubuntu-18.04
