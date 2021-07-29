@@ -1,0 +1,26 @@
+#!/bin/sh
+. "$(dirname $0)/env"
+# if test $# -eq 0
+# then
+#     echo 'usage: push [tag]...'
+#     exit 1
+# fi
+username=$(docker info | sed '/Username:/!d;s/.* //'); 
+if test -z $username
+then
+    echo docker login first
+    exit 2
+fi
+version=$($script_dir/oversion)
+docker build -t "owt-server:$version" "$ROOT"
+docker_push()
+{
+    docker tag "owt-server:$version" "$username/owt-server:$1"
+    docker push "$username/owt-server:$1"
+}
+for i in $*
+do
+    docker_push $i
+done
+docker_push $version
+docker_push latest
