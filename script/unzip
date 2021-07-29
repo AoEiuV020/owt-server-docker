@@ -1,0 +1,8 @@
+set -e
+dist_dir=$(dirname $(dirname $0))/dist
+cd $dist_dir
+zipped_file=$(ls CS_WebRTC_Conference_Server_MCU*Ubuntu.tgz)
+tar -zxf $zipped_file
+release_folder=Release
+mv Release* $release_folder
+
