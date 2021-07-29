@@ -1,0 +1,1 @@
+tail -f /opt/owt/logs/app.stdout

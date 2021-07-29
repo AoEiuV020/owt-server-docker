@@ -1,0 +1,4 @@
+. "$(dirname $0)/env"
+zipped_file=$(basename $(ls $ROOT/dist/CS_WebRTC_Conference_Server_MCU*))
+version=$(echo $zipped_file|sed 's/.*\.\(v.*\).Ubuntu.*/\1/')
+docker build -t "owt-server:$version" "$ROOT"

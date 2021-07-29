@@ -1,0 +1,4 @@
+set -e
+script_dir=$(cd $(dirname $0);pwd)
+ROOT=$(dirname $script_dir)
+dist_dir=$ROOT/dist

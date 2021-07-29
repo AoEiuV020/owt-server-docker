@@ -1,5 +1,4 @@
-set -e
-dist_dir=$(dirname $(dirname $0))/dist
+. "$(dirname $0)/env"
 cd $dist_dir
 zipped_file=$(ls CS_WebRTC_Conference_Server_MCU*Ubuntu.tgz)
 tar -zxf $zipped_file
