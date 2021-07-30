@@ -7,4 +7,4 @@ then
     echo docker login first
     exit 1
 fi
-docker pull "$username/owt-server:$version" || echo skip old version
+docker pull "$username/owt-base:$version" && docker tag "$username/owt-base:$version" owt-base  || echo skip old version

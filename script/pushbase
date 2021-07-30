@@ -7,11 +7,11 @@ then
     exit 2
 fi
 version=$($script_dir/oversion)
-docker build -t "owt-server" "$ROOT"
+docker build -t "owt-base" "$base_dir"
 docker_push()
 {
-    docker tag "owt-server" "$username/owt-server:$1"
-    docker push "$username/owt-server:$1"
+    docker tag "owt-base" "$username/owt-base:$1"
+    docker push "$username/owt-base:$1"
 }
 for i in $*
 do

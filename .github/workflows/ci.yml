@@ -35,6 +35,8 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: download release package
+      run: ./script/download
     - name: docker build
       run: ./script/build
     - name: docker push
