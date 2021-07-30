@@ -1,1 +1,4 @@
-/opt/owt/bin/start-all.sh
+#!/bin/sh
+cd /opt/owt/bin/
+# start mongodb and rabbitmq on init script,
+./init-mongodb.sh && ./init-rabbitmq.sh && ./start-all.sh
