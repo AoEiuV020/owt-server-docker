@@ -1,2 +1,2 @@
 . "$(dirname $0)/env"
-docker build -t "owt-base" "$base_dir"
+test ! -z "$(docker images -q owt-base)" || docker build -t "owt-base" "$base_dir"
