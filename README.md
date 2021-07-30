@@ -4,3 +4,6 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/aoeiuv020/owt-server)](https://hub.docker.com/r/aoeiuv020/owt-server)
 
 
+# TODO
+1. 房间后台密码暂时不支持修改，
+2. https证书暂时不支持更换，
