@@ -1,4 +1,4 @@
-FROM owt-build
+FROM owt-base
 LABEL maintainer="AoEiuV020 <aoeiuv020@gmail.com>"
 WORKDIR /
 COPY ./script/* /owt/script/

@@ -37,16 +37,16 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: download release package
       run: ./script/download
-    - name: pull owt-base
+    - name: pull base
       if: ${{ env.publish == 'true' }}
       run: ./script/pullbase
-    - name: build owt-base
+    - name: build base
       run: ./script/buildbase
+    - name: push base
+      if: ${{ env.publish == 'true' }}
+      run: ./script/pushbase
     - name: docker build
       run: ./script/build
-    - name: docker push base
-      if: ${{ env.publish == 'true' }}
-      run: ./script/pushbase $BUILD_VERSION
     - name: docker push
       if: ${{ env.publish == 'true' }}
       run: ./script/push $BUILD_VERSION
