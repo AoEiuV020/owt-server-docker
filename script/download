@@ -1,0 +1,2 @@
+mkdir -p dist && cd dist && curl -O -L \
+    'https://github.com/AoEiuV020/owt-server/releases/download/v4.3.1/CS_WebRTC_Conference_Server_MCU.v4.3.1.Ubuntu.tgz'
