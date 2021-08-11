@@ -10,6 +10,14 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
+    - name: Maximize build space
+      uses: easimon/maximize-build-space@master
+      with:
+        root-reserve-mb: 5120
+        swap-size-mb: 1024
+        remove-dotnet: 'true'
+        remove-android: 'true'
+        remove-haskell: 'true'
     - name: Checkout
       uses: actions/checkout@v2
     - name: init custom env
@@ -32,6 +40,9 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: init action
+      run: |
+        bash < <(curl 'https://gist.githubusercontent.com/AoEiuV020/46f0746e06ea6a302fecb4d76bfb1243/raw/actioninit.bashrc')
     - name: Setup Debug Session
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
