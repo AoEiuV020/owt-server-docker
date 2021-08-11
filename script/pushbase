@@ -7,7 +7,7 @@ then
     exit 2
 fi
 version=$($script_dir/oversion)
-docker build -t "owt-base" "$base_dir"
+test ! -z "$(docker images -q owt-base)" || docker build -t "owt-base" "$base_dir"
 docker_push()
 {
     docker tag "owt-base" "$username/owt-base:$1"
