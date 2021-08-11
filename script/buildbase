@@ -1,5 +1,5 @@
 . "$(dirname $0)/env"
-test ! -z "$(docker images -q owt-base)" || docker build -t "owt-base" \
+test ! -z "$(docker images -q owt-base)" && echo skip build owt-base || docker build -t "owt-base" \
         --build-arg http_proxy=${HTTP_PROXY} \
         --build-arg https_proxy=${HTTPS_PROXY} \
         --build-arg HTTP_PROXY=${HTTP_PROXY} \
