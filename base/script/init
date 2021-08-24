@@ -1,1 +1,2 @@
 yes ''|/opt/owt/bin/init-all.sh --deps
+apt install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
