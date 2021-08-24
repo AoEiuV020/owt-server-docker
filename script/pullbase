@@ -7,4 +7,17 @@ then
     echo docker login first
     exit 1
 fi
-docker pull "$username/owt-base:$version" && docker tag "$username/owt-base:$version" owt-base  || echo skip pull base image
+last_pushed=$(curl -X GET https://hub.docker.com/v2/repositories/$username/owt-base/tags/$version|jq .tag_last_pushed -r)
+if test "$last_pushed" = "null"
+then
+    echo skip pull base image: not found
+    exit 0
+fi
+modify_time=$(git log -1 --pretty="format:%ct" $base_dir)
+push_time=$(date -d "$last_pushed" +"%s")
+if test $modify_time -gt $push_time
+then
+    echo skip pull base image: base changed
+    exit 0
+fi
+docker pull "$username/owt-base:$version" && docker tag "$username/owt-base:$version" owt-base  || echo skip pull base image: failed
