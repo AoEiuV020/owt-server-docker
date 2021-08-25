@@ -1,1 +1,2 @@
-find /opt/owt/logs -type f -exec rm {} \;
+. "$(dirname $0)/env"
+find $owt_home/logs -type f -exec rm {} \;

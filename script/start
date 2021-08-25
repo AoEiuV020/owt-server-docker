@@ -1,4 +1,5 @@
 #!/bin/sh
-cd /opt/owt/bin/
+. "$(dirname $0)/env"
+cd $owt_home/bin/
 # start mongodb and rabbitmq on init script,
 ./init-mongodb.sh && ./init-rabbitmq.sh && ./start-all.sh

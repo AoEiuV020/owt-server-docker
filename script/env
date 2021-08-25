@@ -3,3 +3,4 @@ script_dir=$(cd $(dirname $0);pwd)
 ROOT=$(dirname $script_dir)
 base_dir=$ROOT/base
 dist_dir=$base_dir/dist
+owt_home=/opt/owt

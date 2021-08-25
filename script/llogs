@@ -1,1 +1,2 @@
-ls -ltrh /opt/owt/logs
+. "$(dirname $0)/env"
+ls -ltrh $owt_home/logs

@@ -1,1 +1,2 @@
-tail -f /opt/owt/logs/app.stdout
+. "$(dirname $0)/env"
+tail -f $owt_home/logs/app.stdout

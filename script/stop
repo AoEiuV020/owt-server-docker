@@ -1,1 +1,2 @@
-/opt/owt/bin/stop-all.sh 
+. "$(dirname $0)/env"
+$owt_home/bin/stop-all.sh
