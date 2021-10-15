@@ -30,6 +30,7 @@ jobs:
           docker cp $id:/home/owt-server/dist dist
           cd dist
           tar -zcf owt-build.tar.gz *
+          sha256sum owt-build.tar.gz
     - name: Upload tar
       uses: actions/upload-artifact@master
       with:
