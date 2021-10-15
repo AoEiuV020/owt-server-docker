@@ -1,0 +1,27 @@
+name: build
+env:
+  TZ: Asia/Shanghai
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        repository: AoEiuV020/owt-server
+    - name: build
+      run: |
+          cd docker
+          docker build --target owt-build -t owt:build .
+          id=$(docker create owt:build)
+          docker cp $id:/home/owt-server/dist dist
+          cd dist
+          tar -zcf owt-build.tar.gz *
+    - name: Upload tar
+      uses: actions/upload-artifact@master
+      with:
+        name: android-build
+        path: docker/dist/owt-build.tar.gz
+
