@@ -3,14 +3,25 @@ env:
   TZ: Asia/Shanghai
 on:
   workflow_dispatch:
+    inputs:
+      branch:
+        description: 'build special owt-server branch'     
+        required: false
+        default: ''
 jobs:
   build:
     runs-on: ubuntu-18.04
+    env:
+      BRANCH: ''
     steps:
+    - name: prepare inputs
+      if: github.event.inputs.force != ''
+      run: echo "FORCE=${{ github.event.inputs.force }}" >> $GITHUB_ENV
     - name: Checkout
       uses: actions/checkout@v2
       with:
         repository: AoEiuV020/owt-server
+        ref: ${{ env.BRANCH }}
     - name: build
       run: |
           cd docker
