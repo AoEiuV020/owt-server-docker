@@ -11,4 +11,5 @@ docker run -d --rm --name owt-server --net=host aoeiuv020/owt-server
 
 ## TODO
 1. 房间后台密码暂时不支持修改，
-2. https证书暂时不支持更换，
+1. https证书暂时不支持更换，
+1. 外部ip暂时不支持指定，
